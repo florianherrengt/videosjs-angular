@@ -1,1 +1,5 @@
-video.tpl.html
+<p>Name: {{ ::video.name }}</p>
+<video width="320" height="240" controls>
+    <source ng-src="{{ video.src }}" type="video/mp4" controls>
+    Your browser does not support the video tag.
+</video>

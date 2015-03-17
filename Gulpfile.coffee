@@ -32,9 +32,15 @@ gulp.task 'compile:lib', ->
     gulp.src([
             'client/bower_components/angular/angular.min.js'
             'client/bower_components/angular-ui-router/release/angular-ui-router.min.js'
+            'client/bower_components/angular-sanitize/angular-sanitize.min.js'
         ])
         .pipe(concat('lib.js'))
         .pipe(gulp.dest('server/public/scripts/'))
+
+    # gulp.src([
+    #     ])
+    #     .pipe(concat('lib.css'))
+    #     .pipe(gulp.dest('server/public/css'))
 
 gulp.task 'copy:index', ->
     gulp.src paths.index
