@@ -4,5 +4,7 @@
     Your browser does not support the video tag.
 </video>
 <ul>
-    <li ng-repeat="info in video.infos">{{ info.time }} {{ info.label }}</li>
+    <li ng-repeat="info in video.infos">
+        <span seconds-to-minutes="{{ info.time }}"></span> {{ info.label }}
+    </li>
 </ul>
