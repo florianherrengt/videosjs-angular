@@ -1,0 +1,1 @@
+angular.module("angularvideo").run(["$templateCache", function($templateCache) {$templateCache.put("video.tpl.html","video.tpl.html");}]);
