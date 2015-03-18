@@ -13,6 +13,11 @@ Open the console, the code is not minified
 
 # Run E2E tests
 - Make sure you have selenium running
-    Note: You can download chrome webdriver from http://chromedriver.storage.googleapis.com/index.html?path=2.9/
+
+Note: You can download chrome webdriver from http://chromedriver.storage.googleapis.com/index.html?path=2.9/
 - Open a new terminal
 - `npm run test:e2e`
+
+# ToDo
+- Update informations list as the video is playing
+- Connect to a database
