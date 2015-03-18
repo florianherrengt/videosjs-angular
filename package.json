@@ -7,7 +7,7 @@
     "test:unit": "./node_modules/karma/bin/karma start",
     "test:e2e": "./node_modules/protractor/bin/protractor protractor.conf.js",
     "dev": "./node_modules/nodemon/bin/nodemon.js ./server/app.js --ignore server/public",
-    "start": "PORT=80 node ./server/app.js"
+    "start": "node ./server/app.js"
   },
   "repository": {
     "type": "git",
