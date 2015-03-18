@@ -7,12 +7,14 @@ runSequence = require('gulp-run-sequence')
 sourcemaps = require('gulp-sourcemaps')
 ngAnnotate = require('gulp-ng-annotate')
 templateCache = require('gulp-angular-templatecache')
+less = require('gulp-less')
+path = require('path')
 
-paths = {
-    scripts: 'client/scripts/**/*.coffee',
-    index: 'client/index.html',
+paths =
+    scripts: 'client/scripts/**/*.coffee'
+    index: 'client/index.html'
     templates: 'client/templates/*.tpl.html'
-}
+    less: 'client/css/**/*.less'
 
 gulp.task 'clean:public', ->
     gulp.src('server/public/', {read: false})
@@ -33,14 +35,21 @@ gulp.task 'compile:lib', ->
             'client/bower_components/angular/angular.min.js'
             'client/bower_components/angular-ui-router/release/angular-ui-router.min.js'
             'client/bower_components/angular-sanitize/angular-sanitize.min.js'
+            # 'client/bower_components/bootstrap/dist/js/bootstrap.min.js'
         ])
         .pipe(concat('lib.js'))
         .pipe(gulp.dest('server/public/scripts/'))
 
-    # gulp.src([
-    #     ])
-    #     .pipe(concat('lib.css'))
-    #     .pipe(gulp.dest('server/public/css'))
+    gulp.src([
+        'client/bower_components/bootstrap/dist/css/bootstrap.min.css'
+        ])
+        .pipe(concat('lib.css'))
+        .pipe(gulp.dest('server/public/css'))
+
+    gulp.src([
+        'client/bower_components/bootstrap/dist/fonts/*'
+        ])
+        .pipe(gulp.dest('server/public/fonts'))
 
 gulp.task 'copy:index', ->
     gulp.src paths.index
@@ -53,10 +62,19 @@ gulp.task 'compile:templates', ->
         ))
         .pipe(gulp.dest('server/public/scripts'))
 
+gulp.task 'compile:less', ->
+    gulp.src paths.less
+        .pipe(less(
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        ))
+        .pipe(concat('main.css'))
+        .pipe(gulp.dest('server/public/css/'))
+
 gulp.task 'watch', ->
     gulp.watch paths.scripts, ['compile:coffee']
     gulp.watch paths.index, ['copy:index']
     gulp.watch paths.templates, ['compile:templates']
+    gulp.watch paths.less, ['compile:less']
 
 gulp.task 'default', ->
     runSequence(
@@ -66,6 +84,7 @@ gulp.task 'default', ->
             'compile:lib'
             'copy:index',
             'compile:templates'
+            'compile:less'
         ],
         'watch'
     )

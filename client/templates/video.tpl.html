@@ -1,10 +1,23 @@
-<p>Name: {{ ::video.name }}</p>
-<video width="320" height="240" controls>
-    <source ng-src="{{ video.src }}" type="video/mp4" controls>
-    Your browser does not support the video tag.
-</video>
-<ul>
-    <li ng-repeat="info in video.infos">
-        <span seconds-to-minutes="{{ info.time }}"></span> {{ info.label }}
-    </li>
-</ul>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <ul class="nav navbar-nav">
+        <li><a href="/#/videos"><span class="glyphicon glyphicon-chevron-left"></span>Back</a></li>
+        <li class="divider-vertical"></li>
+        <li><a href="#">{{ ::video.name }}</a></li>
+    </ul>
+    </div>
+  </div>
+</nav>
+<div class="row">
+    <div class="col-md-6">
+        <div video-interface></div>
+    </div>
+    <div class="col-md-6">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="info in video.infos" ng-click="setTime(info.time)">
+                <span seconds-to-minutes="{{ ::info.time }}"></span> {{ ::info.label }}
+            </li>
+        </ul>
+    </div>
+</div>

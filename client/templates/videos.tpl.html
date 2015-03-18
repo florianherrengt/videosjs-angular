@@ -1,5 +1,13 @@
-<ul>
-    <li ng-repeat="video in videos">
-        <a href="/#/video/{{ video.id }}">{{ video.name }}</a>
-    </li>
-</ul>
+<nav class="navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">All videos</a>
+    </div>
+  </div>
+</nav>
+<div class="list-group">
+  <a ng-repeat="video in videos" href="/#/video/{{ ::video.id }}" class="list-group-item">
+    <h4 class="list-group-item-heading">{{ ::video.name }}</h4>
+    <p class="list-group-item-text">{{ ::video.description }}</p>
+  </a>
+</div>

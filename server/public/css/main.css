@@ -1,0 +1,12 @@
+.divider-vertical {
+  height: 50px;
+  border: 1px solid #eee;
+}
+
+video {
+  width: 100%;
+  padding: 0px 30px;
+}
+.list-group {
+  cursor: pointer;
+}
