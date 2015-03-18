@@ -5,7 +5,7 @@ describe('Video informations', function() {
     });
 
     it('should go to the selected video', function() {
-        element.all(by.repeater('video in videos')).get(0).$('a').click();
+        element.all(by.repeater('video in videos')).get(0).click();
         expect(browser.getCurrentUrl()).toBe('http://localhost:3000/#/video/0');
     });
 
