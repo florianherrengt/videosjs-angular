@@ -3,6 +3,8 @@ var app = express();
 var compression = require('compression');
 var path = require('path');
 
+app.set('port', process.env.PORT || 3000);
+
 // compress response
 app.use(compression());
 
@@ -14,6 +16,6 @@ app.use(express["static"](path.join(__dirname, "public")));
 require('./routes')(app)
 
 // start server
-app.listen(3000, function(){
-    console.log('Server listen on port 3000');
+app.listen(app.get('port'), function(){
+    console.log('Server listen on port ' + app.get('port'));
 });
