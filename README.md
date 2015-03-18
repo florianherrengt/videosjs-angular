@@ -1,3 +1,8 @@
+# Demo
+[https://demo-videoangular.herokuapp.com](https://demo-videoangular.herokuapp.com)
+
+Open the console, the code is not minified
+
 # Getting started
 - `npm install`
 - `bower install`
