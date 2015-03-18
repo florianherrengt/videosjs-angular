@@ -5,7 +5,7 @@ var mockData = [{
     src: 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4',
     infos: [{
         time: '0',
-        label: 'A beautify sky'
+        label: 'A beautifull day'
     }, {
         time: '8',
         label: 'The forest'
